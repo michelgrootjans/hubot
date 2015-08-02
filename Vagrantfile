@@ -3,4 +3,6 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "hubot-dev"
 
   config.vm.provision "shell", path: "provision.sh"
+
+  config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "myhubot/node_modules"]
 end
